@@ -1,66 +1,68 @@
 {
-    "name": "kotatsu-website",
-    "version": "1.0.0",
-    "repository": "https://github.com/KotatsuApp/website.git",
-    "type": "module",
-    "contributors": [
-        {
-            "name": "Zakhar Timoshenko",
-            "email": "xtimms@live.com"
-        },
-        {
-            "name": "Koitharu",
-            "email": "nvasya95@gmail.com"
-        }
-    ],
-    "scripts": {
-        "dev": "vitepress dev",
-        "build": "vitepress build",
-        "preview": "vitepress preview",
-        "lint": "markdownlint **/*.md --disable MD045"
+  "name": "kotatsu-website",
+  "version": "1.0.0",
+  "repository": "https://github.com/KotatsuApp/website.git",
+  "type": "module",
+  "contributors": [
+    {
+      "name": "Zakhar Timoshenko",
+      "email": "xtimms@live.com"
     },
-    "devDependencies": {
-        "@resvg/resvg-js": "2.4.1",
-        "@types/gtag.js": "0.0.14",
-        "@types/markdown-it": "^12.2.3",
-        "@types/node": "^18.16.13",
-        "dotenv": "^16.3.1",
-        "fast-glob": "^3.2.12",
-        "gray-matter": "^4.0.3",
-        "markdown-it": "^13.0.1",
-        "markdown-it-container": "^3.0.0",
-        "markdown-it-kbd": "^2.2.2",
-        "markdown-it-shortcode-tag": "1.1.0",
-        "markdownlint": "^0.29.0",
-        "markdownlint-cli": "^0.34.0",
-        "postcss-nesting": "^13.0.1",
-        "transliteration": "^2.3.5",
-        "vitepress": "1.1.4",
-        "vitepress-plugin-tabs": "0.4.1",
-        "vue": "^3.5.13",
-        "vue3-carousel": "0.3.1",
-        "x-satori": "0.1.5"
-    },
-    "pnpm": {
-        "peerDependencyRules": {
-            "ignoreMissing": [
-                "@algolia/client-search"
-            ]
-        }
-    },
-    "dependencies": {
-        "@octokit/rest": "20.0.2",
-        "@octokit/types": "12.0.0",
-        "@vueuse/core": "^10.3.0",
-        "@vueuse/integrations": "^10.3.0",
-        "dayjs": "^1.11.13",
-        "glightbox": "^3.2.0",
-        "qrcode": "^1.5.3"
-    },
-    "optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.9.5"
-    },
-    "engines": {
-        "node": ">=18"
+    {
+      "name": "Koitharu",
+      "email": "nvasya95@gmail.com"
     }
+  ],
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "lint": "markdownlint **/*.md --disable MD045",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.4.1",
+    "@types/gtag.js": "0.0.14",
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.16.13",
+    "dotenv": "^16.3.1",
+    "fast-glob": "^3.2.12",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-kbd": "^2.2.2",
+    "markdown-it-shortcode-tag": "1.1.0",
+    "markdownlint": "^0.29.0",
+    "markdownlint-cli": "^0.34.0",
+    "postcss-nesting": "^13.0.1",
+    "prettier": "^3.6.2",
+    "transliteration": "^2.3.5",
+    "vitepress": "1.1.4",
+    "vitepress-plugin-tabs": "0.4.1",
+    "vue": "^3.5.13",
+    "vue3-carousel": "0.3.1",
+    "x-satori": "0.1.5"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
+  },
+  "dependencies": {
+    "@octokit/rest": "20.0.2",
+    "@octokit/types": "12.0.0",
+    "@vueuse/core": "^10.3.0",
+    "@vueuse/integrations": "^10.3.0",
+    "dayjs": "^1.11.13",
+    "glightbox": "^3.2.0",
+    "qrcode": "^1.5.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }

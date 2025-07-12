@@ -1,7 +1,5 @@
 const config = {
-  plugins: [
-    require("postcss-nesting")
-  ]
-}
+    plugins: [require("postcss-nesting")],
+};
 
-module.exports = config
+module.exports = config;

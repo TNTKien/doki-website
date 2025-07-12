@@ -1,13 +1,16 @@
-<script setup lang="ts" >
-import { defaultAttributes } from './defaultAttributes'
+<script setup lang="ts">
+import { defaultAttributes } from "./defaultAttributes";
 
-withDefaults(defineProps<{
-  height?: string
-  width?: string
-  fill?: string
-}>(), {
-  ...defaultAttributes
-})
+withDefaults(
+  defineProps<{
+    height?: string;
+    width?: string;
+    fill?: string;
+  }>(),
+  {
+    ...defaultAttributes,
+  },
+);
 </script>
 
 <template>

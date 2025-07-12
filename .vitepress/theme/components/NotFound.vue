@@ -1,31 +1,27 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useData } from 'vitepress'
-import { useLangs } from 'vitepress/dist/client/theme-default/composables/langs'
+import { ref, onMounted } from "vue";
+import { useData } from "vitepress";
+import { useLangs } from "vitepress/dist/client/theme-default/composables/langs";
 
-import Button from './Button.vue'
+import Button from "./Button.vue";
 
-const { site, theme } = useData()
-const { localeLinks } = useLangs({ removeCurrent: false })
+const { site, theme } = useData();
+const { localeLinks } = useLangs({ removeCurrent: false });
 
-const root = ref('/')
+const root = ref("/");
 onMounted(() => {
-  const path = window.location.pathname
-    .replace(site.value.base, '')
-    .replace(/(^.*?\/).*$/, '/$1')
+  const path = window.location.pathname.replace(site.value.base, "").replace(/(^.*?\/).*$/, "/$1");
 
   if (localeLinks.value.length) {
-    root.value =
-      localeLinks.value.find(({ link }) => link.startsWith(path))?.link ||
-      localeLinks.value[0].link
+    root.value = localeLinks.value.find(({ link }) => link.startsWith(path))?.link || localeLinks.value[0].link;
   }
-})
+});
 </script>
 
 <template>
   <div class="NotFound">
-    <p class="code">{{ theme.notFound?.code ?? 'Four-Oh-Four' }}</p>
-    <h1 class="title">{{ theme.notFound?.title ?? 'Page not found' }}</h1>
+    <p class="code">{{ theme.notFound?.code ?? "Four-Oh-Four" }}</p>
+    <h1 class="title">{{ theme.notFound?.title ?? "Page not found" }}</h1>
     <div class="divider" />
     <blockquote class="quote">
       <template v-if="theme.notFound?.quote">
@@ -34,17 +30,12 @@ onMounted(() => {
       <template v-else>
         <p>It looks like you followed an incorrect or outdated link.</p>
         <p>The information you were looking for is in here somewhere. You can use the search.</p>
-        <br>
+        <br />
         <p>This site is automatically generated from files hosted on GitHub, so addresses may sometimes change.</p>
       </template>
     </blockquote>
     <div class="action">
-      <Button
-        class="link"
-        :href="root"
-        theme="alt"
-        :text="theme.notFound?.linkText ?? 'Back to main page'"
-      />
+      <Button class="link" :href="root" theme="alt" :text="theme.notFound?.linkText ?? 'Back to main page'" />
     </div>
   </div>
 </template>

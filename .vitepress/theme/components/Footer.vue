@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useQRCode } from '@vueuse/integrations/useQRCode'
-import { useData, withBase } from 'vitepress'
-import { socialList } from '../utils'
-import Link from './Link.vue'
-import GPL from '../icons/GPL.vue'
+import { useQRCode } from "@vueuse/integrations/useQRCode";
+import { useData, withBase } from "vitepress";
+import { socialList } from "../utils";
+import Link from "./Link.vue";
+import GPL from "../icons/GPL.vue";
 
-const { theme, frontmatter } = useData()
-const qrcode = useQRCode(theme.value.footer.qrcodeLink)
+const { theme, frontmatter } = useData();
+const qrcode = useQRCode(theme.value.footer.qrcodeLink);
 </script>
 
 <template>
@@ -17,11 +17,7 @@ const qrcode = useQRCode(theme.value.footer.qrcodeLink)
           <h3 class="footer__title">{{ item.title }}</h3>
           <ul class="footer__list">
             <li v-for="ic in item.items" class="footer__item">
-              <Link
-                :href="withBase(ic.link)"
-                :title="ic.text + '（' + withBase(ic.link) + '）'"
-                noIcon
-              >
+              <Link :href="withBase(ic.link)" :title="ic.text + '（' + withBase(ic.link) + '）'" noIcon>
                 {{ ic.text }}
               </Link>
             </li>
@@ -42,19 +38,8 @@ const qrcode = useQRCode(theme.value.footer.qrcodeLink)
         </div>
 
         <ul>
-          <li
-            class="footer__social-item"
-            v-for="item in socialList"
-          >
-            <a
-              :href="item.link"
-              :aria-label="item.title"
-              :title="item.title"
-              target="_blank"
-              class="footer__social-link"
-              rel="noopener noreferrer"
-              v-html="item.icon">
-            </a>
+          <li class="footer__social-item" v-for="item in socialList">
+            <a :href="item.link" :aria-label="item.title" :title="item.title" target="_blank" class="footer__social-link" rel="noopener noreferrer" v-html="item.icon"> </a>
           </li>
         </ul>
       </div>
@@ -155,7 +140,7 @@ const qrcode = useQRCode(theme.value.footer.qrcodeLink)
     opacity: 0.8;
 
     &::after {
-      content: '+';
+      content: "+";
       filter: invert(50%);
       float: right;
       width: 14px;
@@ -240,7 +225,7 @@ const qrcode = useQRCode(theme.value.footer.qrcodeLink)
   .footer {
     & > :last-child {
       border-top: 1px solid var(--vp-c-divider);
-   }
+    }
   }
 
   .footer__socials {

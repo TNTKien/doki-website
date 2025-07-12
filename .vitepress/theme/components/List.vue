@@ -1,28 +1,19 @@
 <script setup lang="ts">
-import { type DefaultTheme, useRoute, withBase } from 'vitepress'
+import { type DefaultTheme, useRoute, withBase } from "vitepress";
 
-import List from './List.vue'
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
+import List from "./List.vue";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
-const route = useRoute()
+const route = useRoute();
 defineProps<{
-  items: DefaultTheme.SidebarItem[]
-}>()
+  items: DefaultTheme.SidebarItem[];
+}>();
 </script>
 
 <template>
   <ul>
-    <li
-      v-for="(item, idx) in items"
-      :key="idx"
-      class="item"
-      :class="{ 'has-link': item.link }"
-    >
-      <VPLink
-        v-if="item.link"
-        :href="item.link"
-        :class="{ active: withBase(item.link) === route.path }"
-      >
+    <li v-for="(item, idx) in items" :key="idx" class="item" :class="{ 'has-link': item.link }">
+      <VPLink v-if="item.link" :href="item.link" :class="{ active: withBase(item.link) === route.path }">
         {{ item.text }}
       </VPLink>
       <span v-else>

@@ -3,8 +3,8 @@ title: Hello here
 description: You might need to have a Kotatsu application installed to follow this link.
 search: false
 sidebar: true
-sitemap: 
-    exclude: true
+sitemap:
+  exclude: true
 head:
   - - meta
     - name: robots

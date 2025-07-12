@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import type { DefaultTheme } from 'vitepress/theme'
-import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue'
-import Button from './Button.vue'
-import { type Ref, inject } from 'vue'
+import type { DefaultTheme } from "vitepress/theme";
+import VPImage from "vitepress/dist/client/theme-default/components/VPImage.vue";
+import Button from "./Button.vue";
+import { type Ref, inject } from "vue";
 
 interface HeroAction {
-  theme?: 'brand' | 'alt'
-  text: string
-  link: string
+  theme?: "brand" | "alt";
+  text: string;
+  link: string;
 }
 
 interface Data {
-  image?: DefaultTheme.ThemeableImage
-  title: string
-  text: string
-  tagline: string
-  actions: HeroAction[]
+  image?: DefaultTheme.ThemeableImage;
+  title: string;
+  text: string;
+  tagline: string;
+  actions: HeroAction[];
 }
 
 defineProps<{
-  data: Data
-}>()
+  data: Data;
+}>();
 
-const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
+const heroImageSlotExists = inject("hero-image-slot-exists") as Ref<boolean>;
 </script>
 
 <template>
@@ -40,12 +40,7 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
         </slot>
         <div v-if="data.actions" class="actions">
           <p v-for="action in data.actions" :key="action.link" class="action">
-            <Button
-              tag="a"
-              :theme="action.theme"
-              :text="action.text"
-              :href="action.link"
-            />
+            <Button tag="a" :theme="action.theme" :text="action.text" :href="action.link" />
           </p>
         </div>
       </div>
@@ -210,7 +205,7 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
   .description {
     line-height: 36px;
     font-size: 24px;
-        max-width: 576px;
+    max-width: 576px;
   }
 
   .VPHomeHero.has-image .description {

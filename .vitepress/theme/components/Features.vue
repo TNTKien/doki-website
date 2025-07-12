@@ -1,47 +1,38 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { DefaultTheme } from 'vitepress/theme-without-fonts'
+import { computed } from "vue";
+import type { DefaultTheme } from "vitepress/theme-without-fonts";
 
-import Feature from './Feature.vue'
+import Feature from "./Feature.vue";
 
 interface IFeature {
-  image?: DefaultTheme.ThemeableImage
-  title: string
-  details: string
-  link?: string
-  linkText?: string
+  image?: DefaultTheme.ThemeableImage;
+  title: string;
+  details: string;
+  link?: string;
+  linkText?: string;
 }
 
-const {features} = defineProps<{
-  features: IFeature[]
-}>()
+const { features } = defineProps<{
+  features: IFeature[];
+}>();
 
 const grid = computed(() => {
-  const length = features.length
+  const length = features.length;
 
-  if (length === 0) return
-  if (length === 2) return 'grid-2'
-  if (length === 3) return 'grid-3'
-  if (length % 3 === 0) return 'grid-6'
-  if (length > 3) return 'grid-4'
-})
+  if (length === 0) return;
+  if (length === 2) return "grid-2";
+  if (length === 3) return "grid-3";
+  if (length % 3 === 0) return "grid-6";
+  if (length > 3) return "grid-4";
+});
 </script>
 
 <template>
   <div v-if="features" class="Features">
     <div class="container">
       <div class="items">
-        <div
-          v-for="feature in features"
-          :key="feature.title"
-          class="item"
-          :class="[grid]"
-        >
-          <Feature
-            :image="feature.image"
-            :title="feature.title"
-            :details="feature.details"
-          />
+        <div v-for="feature in features" :key="feature.title" class="item" :class="[grid]">
+          <Feature :image="feature.image" :title="feature.title" :details="feature.details" />
         </div>
       </div>
     </div>

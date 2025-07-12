@@ -1,35 +1,29 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { normalizeLink } from 'vitepress/dist/client/theme-default/support/utils'
-import { EXTERNAL_URL_RE } from 'vitepress/dist/client/shared'
+import { computed } from "vue";
+import { normalizeLink } from "vitepress/dist/client/theme-default/support/utils";
+import { EXTERNAL_URL_RE } from "vitepress/dist/client/shared";
 
-const {tag,theme = "brand",href} = defineProps<{
-  tag?: string
-  theme?: 'brand' | 'alt' | 'sponsor'
-  text: string
-  href?: string
-  target?: string
-}>()
+const {
+  tag,
+  theme = "brand",
+  href,
+} = defineProps<{
+  tag?: string;
+  theme?: "brand" | "alt" | "sponsor";
+  text: string;
+  href?: string;
+  target?: string;
+}>();
 
-const classes = computed(() => [
-  theme
-])
+const classes = computed(() => [theme]);
 
-const isExternal = computed(() => href && EXTERNAL_URL_RE.test(href))
+const isExternal = computed(() => href && EXTERNAL_URL_RE.test(href));
 
-const buttonTag = computed(() => tag ?? (href ? 'a' : 'button'))
+const buttonTag = computed(() => tag ?? (href ? "a" : "button"));
 </script>
 
 <template>
-  <component
-    :is="buttonTag"
-    class="Button"
-    :class="classes"
-    :href="href ? normalizeLink(href) : undefined"
-    :target="target ?? (isExternal ? '_blank' : undefined)"
-    :rel="isExternal ? 'noreferrer' : undefined"
-    :aria-label="text"
-  >
+  <component :is="buttonTag" class="Button" :class="classes" :href="href ? normalizeLink(href) : undefined" :target="target ?? (isExternal ? '_blank' : undefined)" :rel="isExternal ? 'noreferrer' : undefined" :aria-label="text">
     {{ text }}
   </component>
 </template>
@@ -43,7 +37,9 @@ const buttonTag = computed(() => tag ?? (href ? 'a' : 'button'))
   padding: 8px 18px;
   font-size: 16px;
   font-weight: 500;
-  transition: all 0.25s, color 0.25s;
+  transition:
+    all 0.25s,
+    color 0.25s;
 }
 
 .Button.alt {
@@ -67,7 +63,7 @@ const buttonTag = computed(() => tag ?? (href ? 'a' : 'button'))
 }
 
 .Button.cta:before {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 25px;
@@ -81,7 +77,7 @@ const buttonTag = computed(() => tag ?? (href ? 'a' : 'button'))
 }
 
 .Button.cta.question::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 25px;
   height: 25px;

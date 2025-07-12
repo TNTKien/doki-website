@@ -1,49 +1,49 @@
-import { defineLoader } from "vitepress"
-import { Octokit } from "@octokit/rest"
-import type { GetResponseDataTypeFromEndpointMethod } from "@octokit/types"
-import fs from "node:fs"
+import { defineLoader } from "vitepress";
+import { Octokit } from "@octokit/rest";
+import type { GetResponseDataTypeFromEndpointMethod } from "@octokit/types";
+import fs from "node:fs";
 
-const isDev = process.env.NODE_ENV === "development"
+const isDev = process.env.NODE_ENV === "development";
 
-const CACHE_PATH = "./release.data.json"
+const CACHE_PATH = "./release.data.json";
 
-const octokit = new Octokit()
+const octokit = new Octokit();
 
-type GitHubRelease = GetResponseDataTypeFromEndpointMethod<typeof octokit.repos.getLatestRelease>
+type GitHubRelease = GetResponseDataTypeFromEndpointMethod<typeof octokit.repos.getLatestRelease>;
 
 export interface AppRelease {
-	stable: GitHubRelease
-	nightly: GitHubRelease
+  stable: GitHubRelease;
+  nightly: GitHubRelease;
 }
 
-declare const data: AppRelease
-export { data }
+declare const data: AppRelease;
+export { data };
 
 export default defineLoader({
-	async load(): Promise<AppRelease> {
+  async load(): Promise<AppRelease> {
     if (fs.existsSync(CACHE_PATH)) {
-      console.log("Release data cache found, loading from cache")
-      const cachedData = JSON.parse(fs.readFileSync(CACHE_PATH, "utf-8"))
-      return cachedData
+      console.log("Release data cache found, loading from cache");
+      const cachedData = JSON.parse(fs.readFileSync(CACHE_PATH, "utf-8"));
+      return cachedData;
     }
 
-		const { data: stable } = await octokit.repos.getLatestRelease({
-			owner: "KotatsuApp",
-			repo: "Kotatsu",
-		})
+    const { data: stable } = await octokit.repos.getLatestRelease({
+      owner: "KotatsuApp",
+      repo: "Kotatsu",
+    });
 
-		const { data: nightly } = await octokit.repos.getLatestRelease({
-			owner: "KotatsuApp",
-			repo: "Kotatsu-nightly",
-		})
+    const { data: nightly } = await octokit.repos.getLatestRelease({
+      owner: "KotatsuApp",
+      repo: "Kotatsu-nightly",
+    });
 
-		const releaseData = {stable, nightly}
+    const releaseData = { stable, nightly };
 
-		if (isDev) {
-      		console.log("Creating release cache")
-      		fs.writeFileSync(CACHE_PATH, JSON.stringify(releaseData, null, 2), "utf-8");
-    	}
+    if (isDev) {
+      console.log("Creating release cache");
+      fs.writeFileSync(CACHE_PATH, JSON.stringify(releaseData, null, 2), "utf-8");
+    }
 
-		return releaseData
-	},
-})
+    return releaseData;
+  },
+});

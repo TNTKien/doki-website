@@ -1,14 +1,13 @@
 <template>
-    <div class="FeatureTitle">
-        <div class="container">
-            <p class="title">What Kotatsu can do?</p>
-            <h1 class="subtitle">And here's what it does!</h1>
-        </div>
+  <div class="FeatureTitle">
+    <div class="container">
+      <p class="title">What Kotatsu can do?</p>
+      <h1 class="subtitle">And here's what it does!</h1>
     </div>
+  </div>
 </template>
 
 <style scoped>
-
 .FeatureTitle {
   position: relative;
   padding: 0 24px 24px 24px;
