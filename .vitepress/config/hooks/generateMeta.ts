@@ -5,6 +5,8 @@ function generateMeta(context: TransformContext, hostname: string) {
   const head: HeadConfig[] = [];
   const { pageData }: { pageData: DocsPageData } = context;
 
+  const pageTitle = pageData.frontmatter.title ?? pageData.title;
+
   const url = `${hostname}/${pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2")}`;
 
   // Fonts
@@ -47,8 +49,8 @@ function generateMeta(context: TransformContext, hostname: string) {
     ]);
     head.push(["meta", { property: "og:site_name", content: "" }]);
   } else {
-    head.push(["meta", { property: "og:title", content: pageData.frontmatter.title }]);
-    head.push(["meta", { name: "twitter:title", content: pageData.frontmatter.title }]);
+    head.push(["meta", { property: "og:title", content: pageTitle }]);
+    head.push(["meta", { name: "twitter:title", content: pageTitle }]);
   }
   if (pageData.frontmatter.description) {
     head.push([
@@ -89,11 +91,11 @@ function generateMeta(context: TransformContext, hostname: string) {
     head.push(["meta", { property: "og:image:width", content: "1200" }]);
     head.push(["meta", { property: "og:image:height", content: "628" }]);
     head.push(["meta", { property: "og:image:type", content: "image/png" }]);
-    head.push(["meta", { property: "og:image:alt", content: pageData.frontmatter.title }]);
+    head.push(["meta", { property: "og:image:alt", content: pageTitle }]);
     head.push(["meta", { name: "twitter:image", content: `${hostname}/${imageUrl}` }]);
     head.push(["meta", { name: "twitter:image:width", content: "1200" }]);
     head.push(["meta", { name: "twitter:image:height", content: "628" }]);
-    head.push(["meta", { name: "twitter:image:alt", content: pageData.frontmatter.title }]);
+    head.push(["meta", { name: "twitter:image:alt", content: pageTitle }]);
   }
   if (pageData.frontmatter.tag) {
     head.push(["meta", { property: "article:tag", content: pageData.frontmatter.tag }]);
