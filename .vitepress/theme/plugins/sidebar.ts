@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "vitepress";
 import { readFileSync } from "node:fs";
 import { join, basename } from "node:path";
-import fg from "fast-glob";
+import { globSync } from "tinyglobby";
 import matter from "gray-matter";
 import { normalizePath } from "../utils";
 
@@ -12,8 +12,7 @@ declare interface Options {
 }
 
 export function generateSidebar(options: Options): DefaultTheme.SidebarItem[] {
-  return fg
-    .sync(options.root, options)
+  return globSync(options.root, options)
     .map((path) => this.getData(path, options))
     .sort((a, b) => a.text?.localeCompare(b.text) || 0);
 }

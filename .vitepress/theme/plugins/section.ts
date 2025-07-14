@@ -2,7 +2,7 @@ import type { DefaultTheme, PageData, SiteConfig } from "vitepress";
 import { ensureStartingSlash, getTranslator, normalizePath, findSidebarPath } from "../utils/index";
 import { readFileSync } from "node:fs";
 import { basename } from "node:path";
-import fg from "fast-glob";
+import { globSync } from "tinyglobby";
 import matter from "gray-matter";
 import { generateSidebarItem, getTitleFromContent } from "./sidebar";
 import type { Translator } from "../../../website/translators";
@@ -29,8 +29,7 @@ export interface DocsPageData extends PageData {
 
 const paths = ["website/manuals/*.md", "!website/manuals/index.md", "!website/manuals/faq/*/index.md", "!website/manuals/guides/*/index.md"];
 
-export const sections: SectionData[] = fg
-  .sync(paths)
+export const sections: SectionData[] = globSync(paths)
   .map((file) => {
     const content = readFileSync(file, "utf-8");
     const { data } = matter(content);
