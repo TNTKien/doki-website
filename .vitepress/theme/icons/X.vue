@@ -7,9 +7,7 @@ withDefaults(
     width?: string;
     fill?: string;
   }>(),
-  {
-    ...defaultAttributes,
-  },
+  defaultAttributes,
 );
 </script>
 

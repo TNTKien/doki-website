@@ -6,9 +6,7 @@ withDefaults(
     height?: string;
     fill?: string;
   }>(),
-  {
-    ...defaultAttributes,
-  },
+  defaultAttributes,
 );
 </script>
 

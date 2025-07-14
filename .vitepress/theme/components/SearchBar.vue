@@ -8,16 +8,11 @@ const id = useId();
 const { theme } = useData();
 const $t = createTranslate(theme.value.search?.options);
 
-withDefaults(
-  defineProps<{
-    modelValue: string;
-    placeholder: string;
-    backButton?: boolean;
-  }>(),
-  {
-    backButton: true,
-  },
-);
+const { backButton = true } = defineProps<{
+  modelValue: string;
+  placeholder: string;
+  backButton?: boolean;
+}>();
 
 /* Search input focus */
 
@@ -44,6 +39,7 @@ function onSearchBarClick(event: PointerEvent) {
     <form class="search-bar" @pointerup="onSearchBarClick($event)" @submit.prevent="">
       <label :title="placeholder" id="localsearch-label" :for="id"> <MagnifyingGlass width="18px" height="18[x" />q </label>
       <div v-if="backButton" class="search-actions before">
+        SOme
         <button class="back-button" :title="$t('modal.backButtonTitle')" @click="$emit('close')">
           <ArrowLeft width="18" height="18" />
         </button>
