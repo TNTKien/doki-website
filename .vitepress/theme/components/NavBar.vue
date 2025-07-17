@@ -1,32 +1,32 @@
 <script lang="ts" setup>
-import { useWindowScroll } from '@vueuse/core'
-import { computed } from 'vue'
-import { useData, inBrowser } from 'vitepress'
-import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar'
-import VPNavBarTitle from 'vitepress/dist/client/theme-default/components/VPNavBarTitle.vue'
-import VPNavBarSearch from 'vitepress/dist/client/theme-default/components/VPNavBarSearch.vue'
-import VPNavBarMenu from 'vitepress/dist/client/theme-default/components/VPNavBarMenu.vue'
-import VPNavBarTranslations from 'vitepress/dist/client/theme-default/components/VPNavBarTranslations.vue'
-import VPNavBarSocialLinks from 'vitepress/dist/client/theme-default/components/VPNavBarSocialLinks.vue'
-import VPNavBarExtra from 'vitepress/dist/client/theme-default/components/VPNavBarExtra.vue'
-import VPNavBarHamburger from 'vitepress/dist/client/theme-default/components/VPNavBarHamburger.vue'
+import { useWindowScroll } from "@vueuse/core";
+import { computed } from "vue";
+import { useData, inBrowser } from "vitepress";
+import { useSidebar } from "vitepress/theme";
+import VPNavBarTitle from "vitepress/dist/client/theme-default/components/VPNavBarTitle.vue";
+import VPNavBarSearch from "vitepress/dist/client/theme-default/components/VPNavBarSearch.vue";
+import VPNavBarMenu from "vitepress/dist/client/theme-default/components/VPNavBarMenu.vue";
+import VPNavBarTranslations from "vitepress/dist/client/theme-default/components/VPNavBarTranslations.vue";
+import VPNavBarSocialLinks from "vitepress/dist/client/theme-default/components/VPNavBarSocialLinks.vue";
+import VPNavBarExtra from "vitepress/dist/client/theme-default/components/VPNavBarExtra.vue";
+import VPNavBarHamburger from "vitepress/dist/client/theme-default/components/VPNavBarHamburger.vue";
 
 defineProps<{
-  isScreenOpen: boolean
-}>()
+  isScreenOpen: boolean;
+}>();
 
 defineEmits<{
-  "toggle-screen": []
-}>()
+  "toggle-screen": [];
+}>();
 
-const { y } = useWindowScroll({ window: inBrowser && window })
-const { hasSidebar } = useSidebar()
-const { frontmatter } = useData()
+const { y } = useWindowScroll({ window: inBrowser && window });
+const { hasSidebar } = useSidebar();
+const { frontmatter } = useData();
 
 const classes = computed(() => ({
-  'has-sidebar': hasSidebar.value,
-  top: frontmatter.value?.layout === 'home' && y.value === 0,
-}))
+  "has-sidebar": hasSidebar.value,
+  top: frontmatter.value?.layout === "home" && y.value === 0,
+}));
 </script>
 
 <template>
@@ -164,7 +164,7 @@ const classes = computed(() => ({
 
 @media (min-width: 768px) {
   .content-body {
-    gap: unset
+    gap: unset;
   }
 }
 

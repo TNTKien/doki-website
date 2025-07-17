@@ -1,93 +1,86 @@
 <script lang="ts" setup>
-import { useScrollLock } from '@vueuse/core'
-import { ref, watch, computed } from 'vue'
-import { type DefaultTheme, useRoute, useData, inBrowser } from 'vitepress'
-import { useSidebar } from 'vitepress/dist/client/theme-default/composables/sidebar'
-import VPSidebarItem from 'vitepress/dist/client/theme-default/components/VPSidebarItem.vue'
+import { useScrollLock } from "@vueuse/core";
+import { ref, watch, computed } from "vue";
+import { type DefaultTheme, useRoute, useData, inBrowser } from "vitepress";
+import { useSidebar } from "vitepress/theme";
 
-const { sidebar: flatSidebar, sidebarGroups, hasSidebar } = useSidebar()
-const route = useRoute()
+import VPSidebarItem from "vitepress/dist/client/theme-default/components/VPSidebarItem.vue";
+
+const { sidebar: flatSidebar, sidebarGroups, hasSidebar } = useSidebar();
+const route = useRoute();
 
 const sidebar = computed<DefaultTheme.SidebarItem[]>(() => {
-  return route.path.includes('/components/') ? flatSidebar.value : sidebarGroups.value
-})
+  return route.path.includes("/components/") ? flatSidebar.value : sidebarGroups.value;
+});
 
 const props = defineProps<{
-  open: boolean
-}>()
+  open: boolean;
+}>();
 
 // a11y: focus Nav element when menu has opened
-const navEl = ref<HTMLElement>()
-const isLocked = useScrollLock(inBrowser ? document.body : null)
+const navEl = ref<HTMLElement>();
+const isLocked = useScrollLock(inBrowser ? document.body : null);
 
 watch(
   [props, navEl],
   () => {
     if (props.open) {
-      isLocked.value = true
-      navEl.value?.focus()
-    } else isLocked.value = false
+      isLocked.value = true;
+      navEl.value?.focus();
+    } else isLocked.value = false;
   },
-  { immediate: true, flush: 'post' }
-)
+  { immediate: true, flush: "post" },
+);
 
-const { lang } = useData()
-const activeLinkEl = ref<HTMLElement | null>(null)
-const activeGroupEl = ref<HTMLElement | null>(null)
+const { lang } = useData();
+const activeLinkEl = ref<HTMLElement | null>(null);
+const activeGroupEl = ref<HTMLElement | null>(null);
 
-watch(() => route.path, () => {
-  if (!route.path.includes('/components/')) {
-    return
-  }
+watch(
+  () => route.path,
+  () => {
+    if (!route.path.includes("/components/")) {
+      return;
+    }
 
-  if (!navEl.value) {
-    return
-  }
+    if (!navEl.value) {
+      return;
+    }
 
-  activeLinkEl.value = navEl.value.querySelector<HTMLElement>(`a[href="${route.path}"]`)
-  activeGroupEl.value = activeLinkEl.value.closest<HTMLElement>('.VPSidebarItem.level-0')
+    activeLinkEl.value = navEl.value.querySelector<HTMLElement>(`a[href="${route.path}"]`);
+    activeGroupEl.value = activeLinkEl.value.closest<HTMLElement>(".VPSidebarItem.level-0");
 
-  const offset = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue('--vp-nav-height')) * 2
+    const offset = Number.parseInt(getComputedStyle(document.documentElement).getPropertyValue("--vp-nav-height")) * 2;
 
-  if (!isInViewport(activeGroupEl.value, offset)) {
-    navEl.value.scrollTo({
-      top: activeGroupEl.value.offsetTop - offset
-    })
-  }
-}, { flush: 'post' })
+    if (!isInViewport(activeGroupEl.value, offset)) {
+      navEl.value.scrollTo({
+        top: activeGroupEl.value.offsetTop - offset,
+      });
+    }
+  },
+  { flush: "post" },
+);
 
 // tmp fix vitepress bug
-watch(lang, () => activeGroupEl.value?.classList.remove('collapsed'), { flush: 'post' })
+watch(lang, () => activeGroupEl.value?.classList.remove("collapsed"), { flush: "post" });
 
 function isInViewport(el: HTMLElement, offset: number) {
-  const { top, bottom } = el.getBoundingClientRect()
-  const { innerHeight } = window
-  return top >= offset && bottom <= offset + innerHeight
-};
+  const { top, bottom } = el.getBoundingClientRect();
+  const { innerHeight } = window;
+  return top >= offset && bottom <= offset + innerHeight;
+}
 </script>
 
 <template>
-  <aside
-    v-if="hasSidebar"
-    class="VPSidebar"
-    :class="{ open }"
-    ref="navEl"
-    @click.stop
-  >
+  <aside v-if="hasSidebar" class="VPSidebar" :class="{ open }" ref="navEl" @click.stop>
     <div class="curtain" />
 
     <nav class="nav" id="VPSidebarNav" aria-labelledby="sidebar-aria-label" tabindex="-1">
-      <span class="visually-hidden" id="sidebar-aria-label">
-        Sidebar Navigation
-      </span>
+      <span class="visually-hidden" id="sidebar-aria-label"> Sidebar Navigation </span>
 
       <slot name="sidebar-nav-before" />
 
-      <div
-        v-for="item in sidebar"
-        :key="item.text"
-        class="group"
-      >
+      <div v-for="item in sidebar" :key="item.text" class="group">
         <VPSidebarItem :item :depth="0" :class="{ landing: !item.items }" />
       </div>
 
@@ -112,7 +105,9 @@ function isInViewport(el: HTMLElement, offset: number) {
   overflow-x: hidden;
   overflow-y: auto;
   transform: translateX(-100%);
-  transition: opacity 0.5s, transform 0.25s ease;
+  transition:
+    opacity 0.5s,
+    transform 0.25s ease;
   overscroll-behavior: contain;
 }
 
@@ -120,8 +115,9 @@ function isInViewport(el: HTMLElement, offset: number) {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
-  transition: opacity 0.25s,
-  transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition:
+    opacity 0.25s,
+    transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .dark .VPSidebar {

@@ -5,31 +5,36 @@ footer: false
 ---
 
 # Kotatsu parsers
+
 This library provides manga sources.
 
 ## Usage
+
 Add it to your root `build.gradle` at the end of repositories:
 
 ```groovy{4}
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }  // [!code focus]
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }  // [!code focus]
+    }
 }
 ```
 
 Add the dependency
 
 :::tip For Java/Kotlin project:
+
 ```groovy
 dependencies {
     implementation("com.github.KotatsuApp:kotatsu-parsers:$parsers_version")
 }
 ```
+
 :::
 
 :::tip For Android project:
+
 ```groovy
 dependencies {
     implementation("com.github.KotatsuApp:kotatsu-parsers:$parsers_version") {
@@ -37,6 +42,7 @@ dependencies {
     }
 }
 ```
+
 :::
 
 Versions are available on [JitPack](https://jitpack.io/#KotatsuApp/kotatsu-parsers)
@@ -46,11 +52,12 @@ projects, [core library desugaring](https://developer.android.com/studio/write/j
 the [NIO specification](https://developer.android.com/studio/write/java11-nio-support-table) should be enabled to
 support Java 8+ features.
 
-
 :::tip Usage in code
+
 ```kotlin
 val parser = mangaLoaderContext.newParserInstance(MangaParserSource.MANGADEX)
 ```
+
 :::
 
 `mangaLoaderContext` is an implementation of the `MangaLoaderContext` class.

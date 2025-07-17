@@ -9,6 +9,7 @@ import { data as release } from "@theme/data/release.data"
 </script>
 
 # Tracking
+
 Tracking helps you automatically send read chapters to supported trackers, so you can keep track of what and when you read it online.
 
 ## Services
@@ -24,10 +25,12 @@ Kotatsu (version {{ release.stable.tag_name }}) supports the following services:
 ## General questions
 
 ### How do I log in to trackers?
+
 1. Go to <nav to="services">.
 1. Tap the desired tracker to begin login.
 
 ### How do I set up tracking for each series?
+
 1. Open the series.
 1. Tap <nav to="details_tracking">.
 1. Find a series and click **Done**.

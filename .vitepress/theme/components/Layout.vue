@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import DefaultTheme from 'vitepress/theme-without-fonts'
+import DefaultTheme from "vitepress/theme-without-fonts";
 
-import Home from './Home.vue'
-import TranslatorWidget from './TranslatorWidget.vue'
-import ScreenTranslatorWidget from './ScreenTranslatorWidget.vue'
-import Breadcrumbs from './Breadcrumbs.vue'
-import NotFound from './NotFound.vue'
+import Home from "./Home.vue";
+import TranslatorWidget from "./TranslatorWidget.vue";
+import ScreenTranslatorWidget from "./ScreenTranslatorWidget.vue";
+import Breadcrumbs from "./Breadcrumbs.vue";
+import NotFound from "./NotFound.vue";
 
-const { Layout } = DefaultTheme
+const { Layout } = DefaultTheme;
 </script>
 
 <template>

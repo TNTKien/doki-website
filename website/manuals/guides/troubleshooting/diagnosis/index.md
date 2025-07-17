@@ -21,11 +21,11 @@ Follow these steps to troubleshoot and find solutions.
 1. **Source status**: Verify the source's status in a browser.
 1. **Retry button**: Look for a retry button on the series page.
 1. **Advanced settings**: Under <nav to="data">, try these options:
-    - Clear thumbnails cache
-    - Clear page cache
-    - Clear network cache
-    - Clear cookies
-    - Under <nav to="network">, try to enable DNS over HTTPS
+   - Clear thumbnails cache
+   - Clear page cache
+   - Clear network cache
+   - Clear cookies
+   - Under <nav to="network">, try to enable DNS over HTTPS
 1. **Download issues**: Delete the queue and retry downloads.
 1. **Restart Kotatsu**: Force close and reopen the app.
 
@@ -42,9 +42,11 @@ There are no ETAs for updates.
 :::
 
 ## Personalized issue
+
 If you're the only one facing a problem, you might be encountering an IP ban, or other countermeasures set by website owners against programs like **Kotatsu**.
 
 **To minimize future issues:**
+
 - Avoid using downloads with the source.
 - Reduce the number of series in your favourites/history from that source.
 
@@ -53,6 +55,7 @@ These are general guidelines as each site has its specific undisclosed limits an
 :::
 
 ## Widespread issue
+
 When everyone experiences a problem, it could be with the source or app:
 
 1. Check open issues [for the app](https://github.com/KotatsuApp/Kotatsu/issues) and/or [**parsers**](https://github.com/KotatsuApp/kotatsu-parsers/issues).

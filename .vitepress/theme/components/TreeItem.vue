@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { DefaultTheme } from 'vitepress'
+import { computed, ref } from "vue";
+import type { DefaultTheme } from "vitepress";
 
-import Tree from './Tree.vue'
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
+import Tree from "./Tree.vue";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
-const {item} = defineProps<{
-  item: DefaultTheme.SidebarItem
-}>()
-const isOpen = ref(false)
+const { item } = defineProps<{
+  item: DefaultTheme.SidebarItem;
+}>();
+const isOpen = ref(false);
 const isFolder = computed(() => {
-  return !!item.items?.length
-})
+  return !!item.items?.length;
+});
 
 function toggle() {
-  if (isFolder.value) isOpen.value = !isOpen.value
+  if (isFolder.value) isOpen.value = !isOpen.value;
 }
 </script>
 
@@ -24,21 +24,12 @@ function toggle() {
     :class="{
       folder: isFolder,
       opened: isOpen,
-      'is-link': !!item.link
+      'is-link': !!item.link,
     }"
   >
-    <span
-      class="title"
-      @click="toggle"
-    >
-      <div
-        v-if="isFolder"
-        class="icon"
-      >
-        <svg
-          viewBox="0 -0.5 17 17"
-          version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
+    <span class="title" @click="toggle">
+      <div v-if="isFolder" class="icon">
+        <svg viewBox="0 -0.5 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <path d="M6.113,15.495 C5.531,16.076 4.01,16.395 4.01,14.494 L4.01,1.506 C4.01,-0.333 5.531,-0.076 6.113,0.506 L12.557,6.948 C13.137,7.529 13.137,8.47 12.557,9.052 L6.113,15.495 L6.113,15.495 Z"></path>
         </svg>
       </div>
@@ -46,12 +37,7 @@ function toggle() {
         {{ item.text }}
       </VPLink>
     </span>
-    <Tree
-      v-show="isOpen"
-      v-if="isFolder"
-      :items="item.items"
-      class="list"
-    />
+    <Tree v-show="isOpen" v-if="isFolder" :items="item.items" class="list" />
   </li>
 </template>
 
@@ -66,9 +52,9 @@ function toggle() {
 }
 
 .item:not(.folder)::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: calc(50% - .5px);
+  top: calc(50% - 0.5px);
   left: 3px;
   width: 12px;
   height: 0;
@@ -100,7 +86,7 @@ function toggle() {
   width: 10px;
   height: 10px;
   fill: var(--vp-c-text-3);
-  transition: fill .25s;
+  transition: fill 0.25s;
 }
 
 .item:not(.is-link) > .title:hover > .icon svg,

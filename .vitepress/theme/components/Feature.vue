@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import VPImage from 'vitepress/dist/client/theme-default/components/VPImage.vue';
-import type { DefaultTheme } from 'vitepress/theme'
+import VPImage from "vitepress/dist/client/theme-default/components/VPImage.vue";
+import type { DefaultTheme } from "vitepress/theme";
 
 defineProps<{
-  image: DefaultTheme.ThemeableImage
-  title: string
-  details?: string
-}>()
+  image: DefaultTheme.ThemeableImage;
+  title: string;
+  details?: string;
+}>();
 </script>
 
 <template>
@@ -32,7 +32,9 @@ defineProps<{
   border-radius: var(--vp-border-radius);
   height: 100%;
   box-shadow: var(--vp-shadow-6);
-  transition: border-color 0.25s, background-color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
 }
 
 .box {

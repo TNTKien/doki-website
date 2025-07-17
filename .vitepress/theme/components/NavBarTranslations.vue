@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import VPIconLanguages from 'vitepress/dist/client/theme-default/components/icons/VPIconLanguages.vue'
-import VPFlyout from 'vitepress/dist/client/theme-default/components/VPFlyout.vue'
-import VPMenuLink from 'vitepress/dist/client/theme-default/components/VPMenuLink.vue'
-import { useData } from 'vitepress'
-import { useLangs } from '../composables/langs'
+import VPIconLanguages from "vitepress/dist/client/theme-default/components/icons/VPIconLanguages.vue";
+import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
+import VPMenuLink from "vitepress/dist/client/theme-default/components/VPMenuLink.vue";
+import { useData } from "vitepress";
+import { useLangs } from "../composables/langs";
 
-const { theme } = useData()
-const { localeLinks, currentLang } = useLangs({ correspondingLink: true })
+const { theme } = useData();
+const { localeLinks, currentLang } = useLangs({ correspondingLink: true });
 </script>
 
 <template>
-  <VPFlyout
-    v-if="localeLinks.length && currentLang.label"
-    class="VPNavBarTranslations"
-    :icon="VPIconLanguages"
-    :label="theme.langMenuLabel || 'Change language'"
-  >
+  <VPFlyout v-if="localeLinks.length && currentLang.label" class="VPNavBarTranslations" :icon="VPIconLanguages" :label="theme.langMenuLabel || 'Change language'">
     <div class="items">
       <p class="title">{{ currentLang.label }}</p>
 

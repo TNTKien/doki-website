@@ -5,17 +5,19 @@ footer: false
 ---
 
 # Synchronization server
+
 Instructions for installing the synchronization server.
 
 ## Installation
 
 ### Docker
+
 Build image container:
 
 ```bash
 docker build github.com/KotatsuApp/kotatsu-syncserver.git -t kotatsuapp/syncserver
 ```
-	
+
 Run container:
 
 ```bash
@@ -31,7 +33,9 @@ docker run -d -p 8081:8080 \
 ```
 
 ### Systemd
-Requirements: 
+
+Requirements:
+
 - JDK 11+
 - Gradle 7.0+
 
@@ -50,5 +54,5 @@ systemctl enable kotatsu-sync
 systemctl daemon-reload
 systemctl start kotatsu-sync
 ```
-	
+
 For any questions, please, contact us in [Telegram group](https://t.me/kotatsuapp) or write an issue, thanks.

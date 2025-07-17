@@ -20,6 +20,7 @@ Below are some tips for using them.
 
 :::: tabs
 == Add entries
+
 ### Add series to a category
 
 1. Long press the series you want to add.
@@ -27,9 +28,10 @@ Below are some tips for using them.
 1. Select which category or categories you want it in.
 
 == Remove entries
+
 ### Remove series from a category
 
 1. Long press the series that you want to remove.
 1. Press the **heart** button.
 1. Deselect the category or categories you want to remove it from.
-::::
+   ::::

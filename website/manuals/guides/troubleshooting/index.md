@@ -13,6 +13,7 @@ Be sure to check the [Frequently Asked Questions](/manuals/faq/general/) for how
 ## WebView
 
 ### Clearing cookies and WebView data
+
 This resets your WebView to a clean state, including any login states.
 
 1. Navigate to <nav to="data">.
@@ -20,6 +21,7 @@ This resets your WebView to a clean state, including any login states.
 1. Tap **Clear cookies**.
 
 ### WebView update
+
 To update WebView, you need to find what WebView implementation is used on your device.
 
 Typical default implementation depends on the Android version as follows:
@@ -46,7 +48,9 @@ It's best to use the standard [Android System WebView](https://play.google.com/s
 ## General
 
 ### Obtaining crash/error logs
+
 For crash investigations, navigate to <nav to="about"> and tap **Share logs**.
 
 ### Obtaining more logs
+
 To diagnose abnormal app behavior, record device logs using a [Logcat Reader](https://play.google.com/store/apps/details?id=com.dp.logcatapp).

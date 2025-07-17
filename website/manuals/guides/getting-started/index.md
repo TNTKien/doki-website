@@ -35,8 +35,8 @@ You can organize the list of sources in <nav to="explore_manage_sources">
 Here's how you can add series to your favourites:
 
 1. Select the source you'd like to browse.
-1. Once you've found the series that you want to add, tap on it for more details.
-1. Press the "Favourite this" chip, choose category or create new one, and the series will be added to your favourites.
+2. Once you've found the series that you want to add, tap on it for more details.
+3. Press the "Favourite this" chip, choose category or create new one, and the series will be added to your favourites.
 
 <img src="/manuals/guides/getting-started/add-to-favourites.jpg" alt="Adding to favourites" width="500"/>
 
@@ -49,16 +49,18 @@ If you want to search for series across all your sources, you can use the Global
 Follow these steps:
 
 1. Go to the main section.
-1. Use the search bar in the toolbar to find series from all available sources.
+2. Use the search bar in the toolbar to find series from all available sources.
 
 ### Trouble finding a specific series?
 
 If you encounter difficulties while searching for a specific series, consider the following points:
 
-* Double-check your spelling and try again, as some sources might use **Japanese romanized** titles instead of **English** ones.
+- Double-check your spelling and try again, as some sources might use **Japanese romanized** titles instead of **English** ones.
+
   > Example: **Boku no Hero Academia** instead of **My Hero Academia**.
 
-* Some sources may use different spellings or wordings for titles.
-  > Example: **Bungo Stray Dogs** instead of **Bungou Stray Dogs**
+- Some sources may use different spellings or wordings for titles.
+
+  > Example: **Bungo Stray Dogs** instead of **Bungou Stray Dogs**.
 
   > Example: **3-gatsu no Lion** instead of **Sangatsu no Lion**.

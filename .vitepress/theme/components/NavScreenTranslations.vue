@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import VPIconChevronDown from 'vitepress/dist/client/theme-default/components/icons/VPIconChevronDown.vue'
-import VPIconLanguages from 'vitepress/dist/client/theme-default/components/icons/VPIconLanguages.vue'
-import { useLangs } from '../composables/langs'
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
+import { ref } from "vue";
+import VPIconChevronDown from "vitepress/dist/client/theme-default/components/icons/VPIconChevronDown.vue";
+import VPIconLanguages from "vitepress/dist/client/theme-default/components/icons/VPIconLanguages.vue";
+import { useLangs } from "../composables/langs";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
-const { localeLinks, currentLang } = useLangs({ correspondingLink: true })
-const isOpen = ref(false)
+const { localeLinks, currentLang } = useLangs({ correspondingLink: true });
+const isOpen = ref(false);
 
 function toggle() {
-  isOpen.value = !isOpen.value
+  isOpen.value = !isOpen.value;
 }
 </script>
 
 <template>
-  <div
-    v-if="localeLinks.length && currentLang.label"
-    class="VPNavScreenTranslations"
-    :class="{ open: isOpen }"
-  >
+  <div v-if="localeLinks.length && currentLang.label" class="VPNavScreenTranslations" :class="{ open: isOpen }">
     <button class="title" @click="toggle">
       <VPIconLanguages class="icon lang" />
       {{ currentLang.label }}

@@ -1,59 +1,35 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import { useData, withBase, useRoute } from 'vitepress'
-import type { DocsPageData } from '../plugins/section'
+import type { Ref } from "vue";
+import { useData, withBase, useRoute } from "vitepress";
+import type { DocsPageData } from "../plugins/section";
 
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
-const { page }: { page: Ref<DocsPageData> } = useData()
-const route = useRoute()
+const { page }: { page: Ref<DocsPageData> } = useData();
+const route = useRoute();
 </script>
 
 <template>
-  <ol
-    v-if="page.breadcrumbs.length"
-    class="Breadcrumbs"
-    itemscope itemtype="https://schema.org/BreadcrumbList"
-  >
+  <ol v-if="page.breadcrumbs.length" class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
     <li
       v-for="(item, idx) in page.breadcrumbs"
       :key="idx"
-      itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem"
+      itemscope
+      itemprop="itemListElement"
+      itemtype="https://schema.org/ListItem"
       class="item"
       :class="{
         active: item.link && withBase(item.link) === route.path,
       }"
     >
-      <VPLink
-        v-if="item.link && idx < page.breadcrumbs.length - 1"
-        :href="item.link"
-        :title="item.text"
-        itemprop="item"
-        class="link"
-      >
-        <span
-          itemprop="name"
-          class="name"
-          v-text="item.text"
-        />
+      <VPLink v-if="item.link && idx < page.breadcrumbs.length - 1" :href="item.link" :title="item.text" itemprop="item" class="link">
+        <span itemprop="name" class="name" v-text="item.text" />
       </VPLink>
       <template v-else>
-        <span
-          :title="item.text"
-          itemprop="name"
-          class="name"
-          v-text="item.text"
-        />
-        <link
-          v-if="item.link"
-          :href="item.link"
-          itemprop="item"
-        >
+        <span :title="item.text" itemprop="name" class="name" v-text="item.text" />
+        <link v-if="item.link" :href="item.link" itemprop="item" />
       </template>
-      <meta
-        itemprop="position"
-        :content="idx.toString()"
-      >
+      <meta itemprop="position" :content="idx.toString()" />
     </li>
   </ol>
 </template>
@@ -66,7 +42,7 @@ const route = useRoute()
 
   color: var(--vp-c-text-2);
   margin-bottom: 10px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .item {
@@ -80,7 +56,7 @@ const route = useRoute()
   }
 
   & + .item::before {
-    content: '/';
+    content: "/";
     font-weight: normal;
     margin-right: 8px;
   }

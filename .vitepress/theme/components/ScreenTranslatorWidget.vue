@@ -1,51 +1,40 @@
 <script setup lang="ts">
-import { type Ref, computed } from 'vue'
-import { type PageData, useData } from 'vitepress'
-import type { DocsPageData } from '../plugins/section'
-import { type Translator, translators } from '../../../website/translators'
+import { type Ref, computed } from "vue";
+import { type PageData, useData } from "vitepress";
+import type { DocsPageData } from "../plugins/section";
+import { type Translator, translators } from "../../../website/translators";
 
-import { VPImage } from 'vitepress/theme-without-fonts'
-import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
+import { VPImage } from "vitepress/theme-without-fonts";
+import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 
 export interface Data {
-  page: Ref<DocsPageData>
-  frontmatter: Ref<PageData['frontmatter']>
-  lang: Ref<string>
+  page: Ref<DocsPageData>;
+  frontmatter: Ref<PageData["frontmatter"]>;
+  lang: Ref<string>;
 }
 
-const { page, frontmatter, lang }: Data = useData()
+const { page, frontmatter, lang }: Data = useData();
 
-const translatorLabel = computed<string>(() => (lang.value === 'ru') ? ('Переводчик') : ((lang.value === 'ua') ? ('Перекладач') : ('Translator')))
+const translatorLabel = computed<string>(() => (lang.value === "ru" ? "Переводчик" : lang.value === "ua" ? "Перекладач" : "Translator"));
 
 const translator = computed<Translator>(() => {
-  const data = page.value?.section?.translator || translators[frontmatter.value.translator]
+  const data = page.value?.section?.translator || translators[frontmatter.value.translator];
 
   if (!data) {
-    return
+    return;
   }
 
   return {
     ...data,
-    name: typeof data.name === 'string' ? data.name : data.name[lang.value]
-  }
-})
+    name: typeof data.name === "string" ? data.name : data.name[lang.value],
+  };
+});
 </script>
 
 <template>
-  <article
-    v-if="translator"
-    class="ScreenTranslatorWidget"
-  >
-    <VPLink
-      :href="translator.github"
-      no-icon
-      class="body"
-    >
-      <VPImage
-        v-if="translator.avatar"
-        class="avatar"
-        :image="translator.avatar"
-      />
+  <article v-if="translator" class="ScreenTranslatorWidget">
+    <VPLink :href="translator.github" no-icon class="body">
+      <VPImage v-if="translator.avatar" class="avatar" :image="translator.avatar" />
       <div class="info">
         <span class="label">{{ translatorLabel }}:</span>
         <span class="name">{{ translator.name }}</span>
@@ -53,7 +42,6 @@ const translator = computed<Translator>(() => {
     </VPLink>
   </article>
 </template>
-
 
 <style scoped>
 .ScreenTranslatorWidget {
