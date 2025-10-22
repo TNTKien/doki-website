@@ -17,6 +17,7 @@ const contributors = computed(() => {
   const list = [...body.matchAll(/(?<=\(|(, ))@(.*?)(?=\)|(, ))/g)].map((match) => match[2]);
   const uncredited = author.includes("[bot]") ? notMentioned.value : [author, ...notMentioned.value];
 
+  // eslint-disable-next-line perfectionist/sort-sets
   return [...new Set([...uncredited, ...list])].filter((user) => !nonExistent.value.includes(user));
 });
 

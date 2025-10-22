@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useQRCode } from "@vueuse/integrations/useQRCode";
 import { useData, withBase } from "vitepress";
+
+import GPL from "../icons/GPL.vue";
 import { socialList } from "../utils";
 import Link from "./BaseLink.vue";
-import GPL from "../icons/GPL.vue";
 
 const { theme, frontmatter } = useData();
 const qrcode = useQRCode(theme.value.footer.qrcodeLink);

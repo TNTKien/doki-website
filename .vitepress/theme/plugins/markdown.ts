@@ -3,10 +3,11 @@ import type MarkdownIt from "markdown-it";
 import type { RenderRule } from "markdown-it/lib/renderer";
 // @ts-expect-error Missing types
 import type StateBlock from "markdown-it/lib/rules_block/state_block";
-// @ts-expect-error Missing types
-import { isSpace } from "markdown-it/lib/common/utils";
+
 import container from "markdown-it-container";
 import kbd from "markdown-it-kbd";
+// @ts-expect-error Missing types
+import { isSpace } from "markdown-it/lib/common/utils";
 
 export const addPlugins = (md: MarkdownIt) => {
   md.use(...createContainer("info", "Information", md))
@@ -49,6 +50,7 @@ function createContainer(klass: string, defaultTitle: string, md: MarkdownIt): C
 
 /* eslint-disable prefer-const */
 function table(state: StateBlock, startLine: number, endLine: number, silent: boolean) {
+  // eslint-disable-next-line perfectionist/sort-variable-declarations
   let ch, lineText, pos, i, l, nextLine, headers, columns, columnCount, token, aligns, t, tableLines, tbodyLines, oldParentType, terminate, terminatorRules, firstCh, secondCh;
 
   // should have at least two lines
@@ -234,11 +236,11 @@ function getLine(state: StateBlock, line: number): string {
 function escapedSplit(str: string): string[] {
   const result = [];
   const max = str.length;
-  let pos = 0,
-    ch,
+  let ch,
+    current = "",
     isEscaped = false,
     lastPos = 0,
-    current = "";
+    pos = 0;
 
   ch = str.charCodeAt(pos);
 

@@ -1,7 +1,9 @@
 import type { DefaultTheme, UserConfig } from "vitepress";
-import { ensureStartingSlash, normalizePath } from "../utils";
+
 import type { DocsPageData, SectionData } from "../plugins/section";
 import type { ThemeConfig } from "../types";
+
+import { ensureStartingSlash, normalizePath } from "../utils";
 
 function findRoot(localeConfig: ThemeConfig, searchable: string, localeLink: string) {
   return localeConfig.nav.find((item) => {

@@ -2,6 +2,12 @@
 // Customized as the plugin did not consider the script loading time.
 // https://github.com/ZhongxuYang/vitepress-plugin-google-analytics
 
+export default function initializeAnalytics(id: string) {
+  if (process.env.NODE_ENV === "production" && id && typeof window !== "undefined") {
+    mountGoogleAnalytics(id);
+  }
+}
+
 function mountGoogleAnalytics(id: string) {
   if (("dataLayer" in window && window.gtag) || window.location.hostname === "localhost") {
     return;
@@ -15,7 +21,7 @@ function mountGoogleAnalytics(id: string) {
     window.dataLayer = window.dataLayer || [];
     const gtag = (...args: unknown[]) => {
       // @ts-expect-error Missing types
-       
+
       window.dataLayer.push(args);
     };
 
@@ -26,10 +32,4 @@ function mountGoogleAnalytics(id: string) {
   });
 
   document.body.appendChild(analyticsScript);
-}
-
-export default function initializeAnalytics(id: string) {
-  if (process.env.NODE_ENV === "production" && id && typeof window !== "undefined") {
-    mountGoogleAnalytics(id);
-  }
 }

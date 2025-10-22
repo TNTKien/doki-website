@@ -1,8 +1,9 @@
-import translators from "./translators.json";
 import type { ThemeTeamMember } from "@/theme/types";
 
+import translators from "./translators.json";
+
 export interface Translator {
-  name: string | Record<string, string>;
+  name: Record<string, string> | string;
   github: string;
   avatar: string;
   website?: string;

@@ -1,8 +1,10 @@
 import type { DefaultTheme } from "vitepress";
-import { readFileSync } from "node:fs";
-import { join, basename } from "node:path";
-import { globSync } from "tinyglobby";
+
 import matter from "gray-matter";
+import { readFileSync } from "node:fs";
+import { basename, join } from "node:path";
+import { globSync } from "tinyglobby";
+
 import { normalizePath } from "../utils";
 
 declare interface Options {

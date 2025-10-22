@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import MarkdownIt from "markdown-it";
+import { computed } from "vue";
+
 import { type AppRelease, data as release } from "../data/release.data";
 
 const { type } = defineProps<{ type: keyof AppRelease }>();

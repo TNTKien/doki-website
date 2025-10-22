@@ -1,7 +1,8 @@
 import "glightbox/dist/css/glightbox.css";
 
-import { watch, type App } from "vue";
 import type { Router } from "vitepress";
+
+import { type App, watch } from "vue";
 
 export const glightboxSymbol = Symbol("glightbox");
 

@@ -1,9 +1,11 @@
-import { defineLoader } from "vitepress";
-import { Octokit } from "@octokit/rest";
 import type { GetResponseDataTypeFromEndpointMethod } from "@octokit/types";
+
+import { Octokit } from "@octokit/rest";
 import fs from "node:fs";
-import { CACHE_DIR } from ".";
 import { join } from "node:path";
+import { defineLoader } from "vitepress";
+
+import { CACHE_DIR } from ".";
 
 const isDev = process.env.NODE_ENV === "development";
 

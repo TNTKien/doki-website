@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { useScrollLock } from "@vueuse/core";
-import { ref, watch, computed } from "vue";
-import { type DefaultTheme, useRoute, useData, inBrowser } from "vitepress";
-import { useSidebar } from "vitepress/theme";
-
+import { type DefaultTheme, inBrowser, useData, useRoute } from "vitepress";
 import VPSidebarItem from "vitepress/dist/client/theme-default/components/VPSidebarItem.vue";
+import { useSidebar } from "vitepress/theme";
+import { computed, ref, watch } from "vue";
 
 const { sidebar: flatSidebar, sidebarGroups, hasSidebar } = useSidebar();
 const route = useRoute();

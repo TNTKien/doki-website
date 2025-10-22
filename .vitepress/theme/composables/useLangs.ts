@@ -1,10 +1,13 @@
-import { type Ref, computed } from "vue";
 import type { DefaultTheme, SiteData } from "vitepress";
-import type { DocsPageData } from "../plugins/section";
+
 import { useData } from "vitepress";
-import { ensureStartingSlash } from "../utils";
 // @ts-expect-error Missing types
 import { getFlatSideBarLinks } from "vitepress/dist/client/theme-default/support/sidebar";
+import { computed, type Ref } from "vue";
+
+import type { DocsPageData } from "../plugins/section";
+
+import { ensureStartingSlash } from "../utils";
 
 interface Data {
   site: Ref<SiteData>;

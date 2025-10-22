@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import type { DefaultTheme } from "vitepress";
 
-import Tree from "./Tree.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { computed, ref } from "vue";
+
+import Tree from "./Tree.vue";
 
 const { item } = defineProps<{
   item: DefaultTheme.SidebarItem;

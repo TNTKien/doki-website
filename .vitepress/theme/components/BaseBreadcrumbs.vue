@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { Ref } from "vue";
-import { useData, withBase, useRoute } from "vitepress";
-import type { DocsPageData } from "../plugins/section";
 
+import { useData, useRoute, withBase } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+
+import type { DocsPageData } from "../plugins/section";
 
 const { page }: { page: Ref<DocsPageData> } = useData();
 const route = useRoute();

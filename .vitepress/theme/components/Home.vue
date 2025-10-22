@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 
-import HomeHero from "./HomeHero.vue";
 import Features from "./Features.vue";
 import FeatureTitle from "./FeatureTitle.vue";
+import HomeHero from "./HomeHero.vue";
 
 const { frontmatter: fm } = useData();
 </script>

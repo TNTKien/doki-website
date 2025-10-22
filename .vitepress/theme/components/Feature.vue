@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import VPImage from "vitepress/dist/client/theme-default/components/VPImage.vue";
 import type { DefaultTheme } from "vitepress/theme";
+
+import VPImage from "vitepress/dist/client/theme-default/components/VPImage.vue";
 
 defineProps<{
   image: DefaultTheme.ThemeableImage;

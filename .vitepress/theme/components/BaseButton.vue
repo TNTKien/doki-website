@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
-// @ts-expect-error Missing types
-import { normalizeLink } from "vitepress/dist/client/theme-default/support/utils";
 // @ts-expect-error Missing types
 import { EXTERNAL_URL_RE } from "vitepress/dist/client/shared";
+// @ts-expect-error Missing types
+import { normalizeLink } from "vitepress/dist/client/theme-default/support/utils";
+import { computed } from "vue";
 
 const {
   tag,
@@ -11,7 +11,7 @@ const {
   href,
 } = defineProps<{
   tag?: string;
-  theme?: "brand" | "alt" | "sponsor";
+  theme?: "alt" | "brand" | "sponsor";
   text: string;
   href?: string;
   target?: string;

@@ -1,4 +1,5 @@
 import type { HeadConfig, TransformContext } from "vitepress";
+
 import type { DocsPageData } from "../../theme/plugins/section";
 
 function generateMeta(context: TransformContext, hostname: string) {

@@ -2,6 +2,7 @@
 /// <reference types="@types/gtag.js" />
 
 import { computed } from "vue";
+
 import { data as release } from "../data/release.data";
 
 const downloadInformation = computed(() => ({
@@ -15,7 +16,7 @@ const downloadInformation = computed(() => ({
   },
 }));
 
-function handleAnalytics(type: "stable" | "nightly") {
+function handleAnalytics(type: "nightly" | "stable") {
   window.gtag?.("event", "Download", {
     event_category: "App",
     event_label: type === "stable" ? "Stable" : "Nightly",

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import MarkdownIt from "markdown-it";
+
 import { data as changelogs } from "../data/changelogs.data";
 
 const md = new MarkdownIt();
 
-function renderMarkdown(string: string | null | undefined) {
+function renderMarkdown(string: null | string | undefined) {
   const body = string ?? "No changelog provided.";
   const flavoredString = body
     .split(/---\r\n\r\n### Checksums|---\r\n\r\nMD5/)[0]

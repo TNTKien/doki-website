@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { type Ref, computed } from "vue";
 import { type PageData, useData } from "vitepress";
-import type { DocsPageData } from "../plugins/section";
-import { translators } from "../../../website/translators";
-
-import { VPImage } from "vitepress/theme-without-fonts";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPImage } from "vitepress/theme-without-fonts";
+import { computed, type Ref } from "vue";
+
+import type { DocsPageData } from "../plugins/section";
+
+import { translators } from "../../../website/translators";
 
 export interface Data {
   page: Ref<DocsPageData>;

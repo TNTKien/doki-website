@@ -1,10 +1,11 @@
-import { type Router, inBrowser, useData } from "vitepress";
-import { type App, watchEffect } from "vue";
-import { createZoom } from "./composables/useZoom";
+import { inBrowser, type Router, useData } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
-import initializeAnalytics from "./plugins/analytics";
 import DefaultTheme from "vitepress/theme-without-fonts";
+import { type App, watchEffect } from "vue";
+
 import Layout from "./components/Layout.vue";
+import { createZoom } from "./composables/useZoom";
+import initializeAnalytics from "./plugins/analytics";
 import "./styles/global.css";
 import "./styles/glightbox.css";
 

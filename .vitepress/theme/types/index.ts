@@ -1,4 +1,5 @@
 import type { DefaultTheme } from "vitepress";
+
 import type { SectionData } from "../plugins/section";
 
 export interface ThemeConfig extends DefaultTheme.Config {

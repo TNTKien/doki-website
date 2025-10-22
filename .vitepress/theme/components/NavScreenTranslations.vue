@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import VPIconChevronDown from "vitepress/dist/client/theme-default/components/icons/VPIconChevronDown.vue";
 import VPIconLanguages from "vitepress/dist/client/theme-default/components/icons/VPIconLanguages.vue";
-import { useLangs } from "../composables/useLangs";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { ref } from "vue";
+
+import { useLangs } from "../composables/useLangs";
 
 const { localeLinks, currentLang } = useLangs({ correspondingLink: true });
 const isOpen = ref(false);

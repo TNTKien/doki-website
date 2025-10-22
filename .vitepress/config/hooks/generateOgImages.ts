@@ -1,10 +1,11 @@
+import type { ContentData, SiteConfig } from "vitepress";
+
+import { renderAsync } from "@resvg/resvg-js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createContentLoader } from "vitepress";
-import type { ContentData, SiteConfig } from "vitepress";
 import { type SatoriOptions, satoriVue } from "x-satori/vue";
-import { renderAsync } from "@resvg/resvg-js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const __fonts = resolve(__dirname, "../../fonts");
@@ -55,7 +56,7 @@ interface GenerateImagesOptions {
   fonts: SatoriOptions["fonts"];
 }
 
-type Dirs = "FAQ" | "Guide" | "News" | "Sandbox" | "Dev" | "Other";
+type Dirs = "Dev" | "FAQ" | "Guide" | "News" | "Other" | "Sandbox";
 
 function getDir(url: string): Dirs {
   if (url.startsWith("/manuals/faq/")) {

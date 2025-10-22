@@ -1,11 +1,14 @@
 import type { DefaultTheme, PageData, SiteConfig } from "vitepress";
-import { ensureStartingSlash, getTranslator, normalizePath, findSidebarPath } from "../utils/index";
+
+import matter from "gray-matter";
 import { readFileSync } from "node:fs";
 import { basename } from "node:path";
 import { globSync } from "tinyglobby";
-import matter from "gray-matter";
-import { generateSidebarItem, getTitleFromContent } from "./sidebar";
+
 import type { Translator } from "../../../website/translators";
+
+import { ensureStartingSlash, findSidebarPath, getTranslator, normalizePath } from "../utils/index";
+import { generateSidebarItem, getTitleFromContent } from "./sidebar";
 
 export interface SectionData {
   path: string;

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, toRefs } from "vue";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { computed, onMounted, ref, toRefs } from "vue";
+
 import { type AppRelease, data as release } from "../data/release.data";
 
 dayjs.extend(relativeTime);

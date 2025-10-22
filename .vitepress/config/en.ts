@@ -1,5 +1,7 @@
 import type { DefaultTheme, LocaleConfig } from "vitepress";
+
 import type { CustomConfig, ThemeConfig } from "../theme/types";
+
 import { sections } from "../theme/plugins/section";
 import { resolveBaseUrl } from "../theme/utils";
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, useId } from "vue";
 import { useData } from "vitepress";
 // @ts-expect-error Missing types
 import { createTranslate } from "vitepress/dist/client/theme-default/support/translation";
-import { MagnifyingGlass, ArrowLeft, X } from "../icons";
+import { onMounted, ref, useId } from "vue";
+
+import { ArrowLeft, MagnifyingGlass, X } from "../icons";
 
 const id = useId();
 const { theme } = useData();

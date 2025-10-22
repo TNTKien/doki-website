@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import type { DefaultTheme } from "vitepress/theme-without-fonts";
+
+import { computed } from "vue";
 
 import Feature from "./Feature.vue";
 
