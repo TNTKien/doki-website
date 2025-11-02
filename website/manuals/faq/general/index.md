@@ -94,10 +94,23 @@ Please follow these steps:
 More information about backup and restore is listed [here](/manuals/guides/backups/).
 :::
 
-## Can I restore my Tachiyomi backup to Kotatsu?
+## Can I restore my Tachiyomi/Mihon backup to Kotatsu?
 
-No, you can't. This is due to the difficulty in supporting and adapting the `.proto.gz` or `.tachibk` format that **Tachiyomi** uses. Also **Kotatsu** and **Tachiyomi** and its forks have different data structures that they use. For **Neko for MangaDex** users we recommend to use [Nekotatsu](https://github.com/PhantomShift/nekotatsu).
+No, you can't. This is due to the difficulty in supporting and adapting the `.proto.gz` or `.tachibk` format that **Tachiyomi/Mihon** uses. Also **Kotatsu** and **Tachiyomi** and its forks have different data structures that they use. For **Neko for MangaDex** users, we recommend to use [Nekotatsu](https://github.com/PhantomShift/nekotatsu) if you're on the desktop or [Nekotatsu Mobile](https://github.com/PhantomShift/nekotatsu-mobile) for android devices.
 
-:::tip Usage from project README
-`$ nekotatsu (input neko.tachibk) (optional output name)`
+::::tabs
+== Nekotatsu
+:::tip How to use
+The instructions are based from the project's README.
 :::
+1. It is recommended to run the update command first to fetch some necessary files.
+`$ nekotatsu update`
+1. Then, you can run the conversion command like so:
+`$ nekotatsu convert (neko.tachibk)`
+== Nekotatsu Mobile
+1. Tap the ⚙️ icon on the top left and tap `Download`.
+1. Next, you'll need to tap `Download` button on the right for each item (Tachiyomi Sources, Kotatsu Parsers, Fixer Script) and make sure they have a green checkmark on the left.
+1. Tap the ⚙️ icon again on the top left and tap `Convert`.
+1. To get started, tap the `Pick Backup` button and pick the `.tachibk` file you'll want to convert. Next, tap the `Pick Save Path` button and select the path you'll want to save your converted backup onto.
+1. Finally, tap the `Convert` button. If it says `Conversion completed!`, that means the file is converted successfully.
+::::
